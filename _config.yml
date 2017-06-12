@@ -1,0 +1,14 @@
+auto: true
+# Site settings
+title: Maxwellqi
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: https://maxwellqi.github.io
+feed: /atom.xml
+
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+paginate: 8
+permalink: /:title/
+
