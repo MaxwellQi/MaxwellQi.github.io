@@ -99,15 +99,15 @@ UIImagePickerControllerQualityTypeIFrame960x540：960*540
 
 刚进入选择界面：
 
-![](../../images/blog/ios_image_picker/image_picker_01.png)
+![](../../images/blog/ios_image_picker/image_picker_01.PNG)
 
 选择一个图片：
 
-![](../../images/blog/ios_image_picker/image_picker_02.png)
+![](../../images/blog/ios_image_picker/image_picker_02.PNG)
 
 选择一个视频：
 
-![](../../images/blog/ios_image_picker/image_picker_03.png)
+![](../../images/blog/ios_image_picker/image_picker_03.PNG)
 
 ### 项目原码
 
