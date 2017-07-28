@@ -14,3 +14,5 @@ tag: ffmpeg
 ## 音视频开发工具
 
 * [MediaInfo使用简介](http://blog.csdn.net/leixiaohua1020/article/details/11903507)
+* [YUV Player Deluxe](http://www.yuvplayer.com/)
+* [修改了一个YUV/RGB播放器](http://blog.csdn.net/leixiaohua1020/article/details/50466201)
