@@ -1,8 +1,7 @@
-
 ---
 layout: post
-title: RGB、YUV像素数据处理
-description: 网上资料系统整理——RGB,YUV像素数据处理
+title: RGB和YUV像素数据处理
+description: 网上资料系统整理——RGB和YUV像素数据处理
 category: blog
 tag: ffmpeg
 ---
