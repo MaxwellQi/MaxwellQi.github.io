@@ -16,3 +16,4 @@ tag: ffmpeg
 * [MediaInfo使用简介](http://blog.csdn.net/leixiaohua1020/article/details/11903507)
 * [YUV Player Deluxe](http://www.yuvplayer.com/)
 * [修改了一个YUV/RGB播放器](http://blog.csdn.net/leixiaohua1020/article/details/50466201)
+* [Audacity](http://www.audacityteam.org)
