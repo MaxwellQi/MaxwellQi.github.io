@@ -1,3 +1,12 @@
+
+---
+layout: post
+title: RGB、YUV像素数据处理
+description: 网上资料系统整理——RGB,YUV像素数据处理
+category: blog
+tag: ffmpeg
+---
+
 ## 说明
 
 本文分别介绍如下几个RGB/YUV视频像素数据处理函数：
