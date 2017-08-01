@@ -20,7 +20,7 @@ tag: ffmpeg
 * 导入库文件  (*.lib)拷贝至项目文件夹lib文件夹下
 * 动态库文件  (*.dll)拷贝至项目文件夹下
 
-`如果直接从官网上下载的ffmpeg开发文件，则可能还需要将MinGW安装目录中的inttypes.h,stdint.h,_mingw.h三个文件拷贝至项目文件夹的include文件夹下`
+如果直接从官网上下载的ffmpeg开发文件，则可能还需要将MinGW安装目录中的inttypes.h,stdint.h,_mingw.h三个文件拷贝至项目文件夹的include文件夹下
 
 ### 配置开发文件
 
@@ -35,7 +35,7 @@ tag: ffmpeg
 导入库配置
 
 * 配置属性 -> 链接器 -> 常规 -> 附加库目录, 输入 "lib"
-* 配置属性 -> 链接器 -> 输入 -> 附加依赖项, 输入 "avcodec.lib;avformat.lib;avutil.lib;avdevice.lib;avfilter.lib;postproc.lib;swresample.lib;swscale.lib"
+* 配置属性 -> 链接器 -> 输入 -> 附加依赖项, 输入"avcodec.lib;avformat.lib;avutil.lib;avdevice.lib;avfilter.lib;postproc.lib;swresample.lib;swscale.lib"
 
 ### 测试
 
