@@ -1,7 +1,7 @@
 ---
 layout: post
 title: c语言基础
-description:c语言基础系统总结
+description: c语言基础系统总结
 category: blog
 tag: c语言
 ---
