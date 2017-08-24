@@ -666,3 +666,8 @@ KVO 的本质就是监听对象的属性进行赋值的时候有没有调用 set
 3. 重写`NSKVONotifying_Person`的`setter`方法：`[super setName:newName]`
 4. 通知观察者告诉属性改变。
 
+
+#### 代码下载
+
+GitHub: 
+[ios_kvc_kvo](https://github.com/MaxwellQi/ios_kvc_kvo)
