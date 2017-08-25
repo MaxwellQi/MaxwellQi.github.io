@@ -390,5 +390,140 @@ Objective-C中提供了三种API来动态替换类方法或实例方法的实现
 
 ## 示例
 
+### 实例、类、父类、元类关系结构示例代码
+
+我创建了两个类，其继承关系是`Chinese->People->NSObject`。 下面就用runtime提供的方法来打印相关的信息。
+
+```
+#import "ViewController.h"
+#import <objc/runtime.h>
+#import "People.h"
+#import "Chinese.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
 
 
+/* 类、父类、元类关系结构的示例代码 */
+- (void)testClass
+{
+    Chinese *ch = [[Chinese alloc] init];
+    NSLog(@"获取Chinese对象ch所属的类是：%@,其父类是：%@",object_getClass(ch),class_getSuperclass(object_getClass(ch)));
+    Class cls = objc_getMetaClass("Chinese");
+
+    NSLog(@"元类是：%@, 元类的父类：%@, 元类的isa:%@",cls,class_getSuperclass(cls),object_getClass(cls));
+
+    People *peo = [[People alloc] init];
+    NSLog(@"获取People对象peo所属的类是：%@,其父类是：%@",object_getClass(peo),class_getSuperclass(object_getClass(peo)));
+    cls = objc_getMetaClass("People");
+    NSLog(@"元类是：%@, 元类的父类：%@, 元类的isa:%@",cls,class_getSuperclass(cls),object_getClass(cls));
+
+    
+    
+    cls = objc_getMetaClass("UIView");
+    NSLog(@"元类是： %@,父类是：%@, cls的isa是： %@", cls, class_getSuperclass(cls), object_getClass(cls)); // Print: YES, UIView, UIResponder, NSObject
+
+    
+    cls = objc_getMetaClass("NSObject");
+    NSLog(@"元类是： %@, 父类是：%@, cls的isa是：%@", cls, class_getSuperclass(cls), object_getClass(cls)); // Print: YES, NSObject, NSObject, NSObject
+}
+
+```
+
+打印信息如下：
+
+```
+获取Chinese对象ch所属的类是：Chinese,其父类是：People
+元类是：Chinese, 元类的父类：People, 元类的isa:NSObject
+获取People对象peo所属的类是：People,其父类是：NSObject
+元类是：People, 元类的父类：NSObject, 元类的isa:NSObject
+元类是： UIView,父类是：UIResponder, cls的isa是： NSObject
+元类是： NSObject, 父类是：NSObject, cls的isa是：NSObject
+```
+
+`object_getClass()`可以获得当前对象 `isa`。这里以 `Chinese` 相关的打印信息为例，来解释一下：
+
+```
+元类是：Chinese, 元类的父类：People, 元类的isa:NSObject
+```
+
+首先我们通过 object_getClass() 获取实例 sub 所属的 Class(isa) 是 `Chinese`；通过 class_getSuperclass() 我们可以获取 `Chinese` 对应的父类是 `People`；通过 objc_getMetaClass() 指定类名，我们可以获取对应的元类，通过 class_isMetaClass() 我们可以判断一个 Class 是否为元类 。
+
+
+### 动态操作类与实例
+
+```
+- (void)runtimeConstuct
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    
+    
+    // 创建并注册一个类，并往类中添加方法
+    Class cls = objc_allocateClassPair(People.class, "Janpanese", 0);
+    class_addMethod(cls, @selector(testRuntimeMethod), (IMP)testRuntimeMethodIMP, "i@:@");
+    objc_registerClassPair(cls);
+    
+    
+    // 2: Create instance of class, print some info about class and associated meta class.
+    id sub = [[cls alloc] init];
+    NSLog(@"类是：%@, 父类是：%@", object_getClass(sub), class_getSuperclass(object_getClass(sub))); // Print: Janpanese, People
+    Class metaCls = objc_getMetaClass("Janpanese");
+    NSLog(@"元类是：%@, 父类是：%@,metaCls的isa是：%@", metaCls, class_getSuperclass(metaCls), object_getClass(metaCls)); // Print: YES, Janpanese, SuperClass, NSObject
+
+    
+    
+    // 3: Methods of class.
+    unsigned int outCount = 0;
+    Method *methods = class_copyMethodList(cls, &outCount);
+    for (int32_t i = 0; i < outCount; i++) {
+        Method method = methods[i];
+        NSLog(@"方法名：%@, %s", NSStringFromSelector(method_getName(method)), method_getTypeEncoding(method));
+    }
+    // Print: testRuntimeMethod, i@:@
+    free(methods);
+    
+    
+    // 4: Call method.
+    int32_t result = (int) [sub performSelector:@selector(testRuntimeMethod) withObject:@{@"a":@"para_a", @"b":@"para_b"}];
+    NSLog(@"函数返回值：%d", result); // Print: 99
+    
+    
+    // 5: Destory instances and class.
+    // Destroy instances of cls class before destroy cls class.
+    sub = nil;
+    // Do not call this function if instances of the cls class or any subclass exist.
+    objc_disposeClassPair(cls);
+    
+#pragma clang diagnostic pop
+    
+}
+
+```
+
+打印信息如下：
+
+```
+类是：Janpanese, 父类是：People
+元类是：Janpanese, 父类是：People,metaCls的isa是：NSObject
+方法名：testRuntimeMethod, i@:@
+testRuntimeMethodIMP : {
+    a = "para_a";
+    b = "para_b";
+}
+函数返回值：99
+```
+
+在上面的代码中，我们在运行时动态创建了 `People` 的一个子类：`Janpanese`；接着为这个类添加了方法和实现；打印了 `Janpanese` 的类、父类、元类相关信息；遍历和打印了 `Janpanese` 的方法的相关信息；调用了 `Janpanese` 的方法；最后销毁了实例和类。
+
+对上面代码的说明：
+
+* 我们看到了几行` #pragma clang diagnostic...` 代码，这是用于忽略编译器对于未声明的 @selector 的 warning。因为我们的代码中我们需要动态的为一个类创建方法，所以必然不会事先声明。
+* `class_addMethod()` 函数的最后一个参数 types 是描述方法返回值和参数列表的字符串，我们的代码中的用到的 `i@:@` 四个字符分别对应着：返回值 int32_t、参数 id self、参数 SEL _cmd、参数 NSDictionary *dic。这个其实就是类型编码(Type Encoding)的概念。在 Objective-C 中，为了协助 Runtime 系统，编译器会将每个方法的返回值和参数列表编码为一个字符串，这个字符串会与方法对应的 selector 关联。更详细的知识可以查阅[ Type Encodings](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html)
+* 使用 `objc_registerClassPair()` 函数需要注意，你不能注册已经注册过的类。
+* 使用 `objc_disposeClassPair()` 函数需要注意，如果一个类的实例和子类还存在时，不要去销毁一个类。
+
+关于更多 Runtime 函数的使用细节可以查阅 [Objective-C Runtime Reference](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/index.html)
