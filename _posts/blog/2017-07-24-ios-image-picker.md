@@ -12,7 +12,9 @@ tag: iOS,Ojbective-C,UIImagePickerController
 
 ### 常用属性和方法
 
-* sourceType
+罗列出最常用的属性和方法，更详细的请参考苹果官方文档。
+
+#### sourceType
 
 ```
 @property(nonatomic)           UIImagePickerControllerSourceType     sourceType;    // default value is UIImagePickerControllerSourceTypePhotoLibrary.
@@ -26,7 +28,7 @@ UIImagePickerControllerSourceTypeCamera : 摄像头
 
 UIImagePickerControllerSourceTypeSavedPhotosAlbum : 相簿
 
-* mediaTypes
+####  mediaTypes
 
 ```
 @property(nonatomic,copy)      NSArray<NSString *>  *mediaTypes; // default value is an array containing kUTTypeImage.
@@ -40,7 +42,7 @@ UIImagePickerControllerSourceTypeSavedPhotosAlbum : 相簿
 ```
 视频最大录制时长，默认为10 s
 
-* videoQuality
+#### videoQuality
 
 ```
 @property(nonatomic)  UIImagePickerControllerQualityType videoQuality NS_AVAILABLE_IOS(3_1);         // default value is UIImagePickerControllerQualityTypeMedium. If the cameraDevice does not support the videoQuality, it will use the default value.
@@ -59,11 +61,11 @@ UIImagePickerControllerQualityTypeIFrame1280x720：1280*720
 
 UIImagePickerControllerQualityTypeIFrame960x540：960*540
 
-* showsCameraControls
+#### showsCameraControls
 
 是否显示摄像头控制面板，默认为YES
 
-* cameraOverlayView
+#### cameraOverlayView
 
 摄像头上覆盖的视图，可用通过这个视频来自定义拍照或录像界面
 
