@@ -5,6 +5,7 @@ description: 介绍Objective-C中的runtime
 category: blog
 tag: iOS,Ojbective-C,KVO,KVC
 ---
+## 概述
 
 `Objective-C`是面相运行时的语言（runtime oriented language），就是说它会尽可能的把编译和链接时要执行的逻辑延迟到运行时。这就给了你很大的灵活性，你可以按需要把消息重定向给合适的对象，你甚至可以交换方法的实现，等等；这就需要使用runtime，runtime可以做对象自省查看他们正在做的和不能做的（don’t respond to）并且适当地分发消息。
 `Objective-C`的Runtime是一个运行时库（Runtime Library），它是一个主要使用C和汇编写的库，为C添加了面相对象的能力并创造了`Objective-C`。这就是说它在类信息（Class Information）中被加载，完成所有的方法分发，方法转发，等等。
@@ -13,8 +14,12 @@ tag: iOS,Ojbective-C,KVO,KVC
 
 Runtime是开源的，你可以去[apple runtime](https://opensource.apple.com/tarballs/objc4/)下载Runtime的源码。
 
+这篇文章主要包含的内容有：
 
-## 基础知识
+* 理解类和对象的本质
+* runtime在开发中的应用
+
+## 基础
 
 ### 认识类和对象的本质
 
