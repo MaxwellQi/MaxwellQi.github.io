@@ -5,15 +5,13 @@ description: VOIP模块，在挂断电话时发生了闪退
 category: project
 tag: viop,webrtc,AURemoteIO,IOThread
 ---
-
-
-### 场景说明
+## 场景说明
 
 在TVUCC界面做voip通话时，点击返回按钮挂断电话并返回到主页面时发生crash。以下是crash的堆栈信息。
 
 ![](https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/20170829AURemoteIO/IOThread02.png)
 
-### bug分析
+## bug分析
 
 根据以上堆栈信息以及crash发生的步骤，我们得出一下信息：
 
@@ -58,6 +56,7 @@ bool VoiceProcessingAudioUnit::Stop() {
 步骤：(QA:10.12.128.155)
 
 1) 进入TVUCC界面，拨打多路电话，只有1路能拨通
+
 2）点击返回按钮挂断电话并回到主页面
 
 logs:
@@ -121,6 +120,7 @@ logs:
 步骤：(QA:10.12.128.155)
 
 1) 进入TVUCC界面，拨打多路电话，只有1路能拨通
+
 2）在tvucc界面挂断这路电话，不反回主页面
 
 logs:
@@ -142,7 +142,9 @@ logs:
 步骤：(QA:10.12.128.155)
 
 1) 进入TVUCC界面，拨打多路电话，只有2路能拨通
+
 2）先在TVUCC界面挂断一路
+
 3）点击返回按钮挂断电话并回到主页面
 
 logs:
@@ -165,6 +167,7 @@ logs:
 步骤：(RD:10.12.23.232)
 
 1) 进入TVUCC界面，打通1路电话
+
 2）点击返回按钮挂断电话并回到主页面
 
 logs:
@@ -219,6 +222,7 @@ logs:
 步骤：(RD:10.12.23.232)
 
 1) 进入TVUCC界面，打通1路电话
+
 2) 在tvucc界面挂断电话，不返回主页面
 
 logs:
@@ -265,7 +269,9 @@ logs:
 步骤：(RD:10.12.23.232)
 
 1) 进入TVUCC界面，2路电话
+
 2）点击TVUCC界面，挂断1路电话
+
 3）点击返回按钮挂断电话并回到主页面
 
 logs:
