@@ -13,15 +13,15 @@ tag: iOS,Ojbective-C,UIImagePickerController
 * UIImagePicker基础知识
 * 获取系统相册
 
-## UIImagePickerController
+##UIImagePickerController
 
 `UIImagePickerController`继承于`UINavigationController`，主要作用有：拍照、摄像、获取相册（通过设置可区分照片和视频）。
 
-### 常用属性和方法
+###常用属性和方法
 
 罗列出最常用的属性和方法，更详细的请参考苹果官方文档。
 
-#### sourceType
+####sourceType
 
 定义如下：
 
@@ -37,7 +37,7 @@ UIImagePickerControllerSourceTypeCamera : 摄像头
 
 UIImagePickerControllerSourceTypeSavedPhotosAlbum : 相簿
 
-####  mediaTypes
+####mediaTypes
 
 定义如下：
 
@@ -55,7 +55,7 @@ UIImagePickerControllerSourceTypeSavedPhotosAlbum : 相簿
 ```
 视频最大录制时长，默认为10 s
 
-#### videoQuality
+####videoQuality
 
 定义如下：
 
@@ -76,20 +76,20 @@ UIImagePickerControllerQualityTypeIFrame1280x720：1280*720
 
 UIImagePickerControllerQualityTypeIFrame960x540：960*540
 
-#### showsCameraControls
+####showsCameraControls
 
 是否显示摄像头控制面板，默认为YES
 
-#### cameraOverlayView
+####cameraOverlayView
 
 摄像头上覆盖的视图，可用通过这个视频来自定义拍照或录像界面
 
 
-## 获取相册
+##获取相册
 
 我们使用`UIImagePickerController`最多的一种情况就是获取系统的相册。
 
-### 初始化UIImagePickerController
+###初始化UIImagePickerController
 
 最主要的就是初始化UIImagePickerController,下面是具体代码：(显示视频和图片)
 
@@ -124,6 +124,6 @@ UIImagePickerControllerQualityTypeIFrame960x540：960*540
 
 ![](../../images/blog/ios_image_picker/image_picker_03.PNG)
 
-### 项目原码
+###项目原码
 
 [github下载](https://github.com/MaxwellQi/ios_imagePicker)
