@@ -10,10 +10,9 @@ tag: iOS,Ojbective-C,KVO,KVC
 
 KVC( Key-Value-Coding),用于键值编码。KVC 是一种可以直接通过字符串的名字 key 来访问类属性的机制，而不是通过调用 `setter`、`getter` 方法去访问。我们可以通过在运行时动态的访问和修改对象的属性。而不是在编译时确定，KVC 是 iOS 开发中的黑魔法之一。
 
-
 ### KVC的使用
 
-KVC 定义了一种按名称访问对象属性的机制，支持这种访问的主要方法有如下几类。
+KVC定义了一种按名称访问对象属性的机制，支持这种访问的主要方法有如下几类。
 
 #### 设置值
 
@@ -676,7 +675,6 @@ KVO 的本质就是监听对象的属性进行赋值的时候有没有调用 set
 2. `person` 的 `isa` 指针指向的类 `Person` 变成 `NSKVONotifying_Person`，所以接下来的 `person.age` = `newAge` 的时候，他调用的不是 `Person` 的 `setter` 方法，而是 `NSKVONotifying_Person`（子类）的 `setter` 方法
 3. 重写`NSKVONotifying_Person`的`setter`方法：`[super setName:newName]`
 4. 通知观察者告诉属性改变。
-
 
 #### 代码下载
 
