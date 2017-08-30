@@ -6,6 +6,13 @@ category: blog
 tag: iOS,Ojbective-C,UIImagePickerController
 ---
 
+## 概述
+
+本文主要介绍`UIImagePickerController`的用法以及用例。
+
+* UIImagePicker基础知识
+* 获取系统相册
+
 ## UIImagePickerController
 
 `UIImagePickerController`继承于`UINavigationController`，主要作用有：拍照、摄像、获取相册（通过设置可区分照片和视频）。
