@@ -18,6 +18,11 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 - [初期版本--基于apprtc-ios(libjingle)集成][4]
 - [最终版本--利用最新的webrtc库完成语音通话][5]
 
+### bug修复
+
+ - [AURemoteIO中的IOThread崩溃][17]
+
+
 ### 对voip通信的总结
 
 - [WebRTC通信的原理][6]
@@ -60,3 +65,4 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 [14]: http://w66g.com
 [15]: http://w66g.com
 [16]: http://w66g.com
+[17]: https://maxwellqi.github.io/webrtc-iothread
