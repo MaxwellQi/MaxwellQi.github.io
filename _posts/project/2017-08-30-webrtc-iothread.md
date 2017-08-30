@@ -2,7 +2,7 @@
 layout: post
 title:  AURemoteIO中的IOThread崩溃
 description: VOIP模块，在挂断电话时发生了闪退
-category:project
+category: project
 tag: viop,webrtc,AURemoteIO,IOThread
 ---
 
