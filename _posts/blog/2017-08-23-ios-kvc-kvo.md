@@ -258,6 +258,8 @@ KVO(Key-Value-Observing),用于观察键值。任何对象都允许观察其它�
 
 ### KVO的使用
 
+以下包含KVO常用的几种使用案例。
+
 #### 注册于移除注册
 
 比如我们现在有一个`Person`类，我们要观察`Person`(被观察者)类对象的变化，那么就可以在该类的对象上调用名为`NSKeyValueObserverRegistration`的category方法将观察者对象与被观察者对象注册与移除注册：
@@ -635,7 +637,7 @@ KVO(Key-Value-Observing),用于观察键值。任何对象都允许观察其它�
 
 当某个类的对象第一次被观察时，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。 派生类在被重写的 setter 方法实现真正的通知机制，就如前面手动实现键值观察那样。这么做是基于设置属性会调用 setter 方法，而通过重写就获得了 KVO 需要的通知机制。当然前提是要通过遵循 KVO 的属性设置方式来变更属性值，如果仅是直接修改属性对应的成员变量，是无法实现 KVO 的。 同时派生类还重写了 class 方法以“欺骗”外部调用者它就是起初的那个类。然后系统将这个对象的 isa 指针指向这个新诞生的派生类，因此这个对象就成为该派生类的对象了，因而在该对象上对 setter 的调用就会调用重写的 setter，从而激活键值通知机制。此外，派生类还重写了 dealloc 方法来释放资源。
 
-#### 派生类 NSKVONotifying_Person 剖析
+#### 派生类NSKVONotifying_Person剖析
 
 在这个过程，被观察对象的 isa 指针从指向原来的 Person 类，被 KVO 机制修改为指向系统新创建的子类 NSKVONotifying_Person 类，来实现当前类属性值改变的监听。
 
@@ -643,7 +645,7 @@ KVO(Key-Value-Observing),用于观察键值。任何对象都允许观察其它�
 
 因而在该对象上对 setter 的调用就会调用已重写的 setter，从而激活键值通知机制。这也是 KVO 回调机制，为什么都俗称 KVO 技术为黑魔法的原因之一吧：内部神秘、外观简洁。
 
-#### 子类 setter 方法剖析
+#### 子类setter方法剖析
 
 `KVO` 在调用存取方法之前总是调用 `willChangeValueForKey:`，通知系统该 keyPath 的属性值即将变更。 当改变发生后，`didChangeValueForKey:` 被调用，通知系统该 keyPath 的属性值已经变更。 之后，`observeValueForKey:ofObject:change:context:` 也会被调用。
 
