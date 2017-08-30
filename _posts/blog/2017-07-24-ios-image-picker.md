@@ -16,6 +16,8 @@ tag: iOS,Ojbective-C,UIImagePickerController
 
 #### sourceType
 
+定义如下：
+
 ```
 @property(nonatomic)           UIImagePickerControllerSourceType     sourceType;    // default value is UIImagePickerControllerSourceTypePhotoLibrary.
 ```
@@ -30,6 +32,8 @@ UIImagePickerControllerSourceTypeSavedPhotosAlbum : 相簿
 
 ####  mediaTypes
 
+定义如下：
+
 ```
 @property(nonatomic,copy)      NSArray<NSString *>  *mediaTypes; // default value is an array containing kUTTypeImage.
 ```
@@ -37,12 +41,16 @@ UIImagePickerControllerSourceTypeSavedPhotosAlbum : 相簿
 
 * videoMaximumDuration
 
+定义如下：
+
 ```
 @property(nonatomic) NSTimeInterval   videoMaximumDuration NS_AVAILABLE_IOS(3_1); // default value is 10 minutes.
 ```
 视频最大录制时长，默认为10 s
 
 #### videoQuality
+
+定义如下：
 
 ```
 @property(nonatomic)  UIImagePickerControllerQualityType videoQuality NS_AVAILABLE_IOS(3_1);         // default value is UIImagePickerControllerQualityTypeMedium. If the cameraDevice does not support the videoQuality, it will use the default value.
