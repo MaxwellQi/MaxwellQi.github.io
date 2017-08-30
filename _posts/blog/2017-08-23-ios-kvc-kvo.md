@@ -6,6 +6,15 @@ category: blog
 tag: iOS,Ojbective-C,KVO,KVC
 ---
 
+## 概述
+
+KVC和KVO是在日常开发中经常遇到的问题，并且在面试的时候多有被问到。这篇文章主要介绍KVC与KVO的用法以及内部实现原理。
+
+* KVC的基本原理以及其简单应用
+* KVO的基本原理以及其应用
+
+以下是详细介绍。
+
 ## KVC
 
 KVC( Key-Value-Coding),用于键值编码。KVC 是一种可以直接通过字符串的名字 key 来访问类属性的机制，而不是通过调用 `setter`、`getter` 方法去访问。我们可以通过在运行时动态的访问和修改对象的属性。而不是在编译时确定，KVC 是 iOS 开发中的黑魔法之一。
