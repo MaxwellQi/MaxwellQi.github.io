@@ -74,3 +74,4 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 [19]: https://maxwellqi.github.io/quick-call-end1
 [20]: https://maxwellqi.github.io/quick-call-end2
 [21]: https://maxwellqi.github.io/quick-call-end3
+[22]: https://maxwellqi.github.io/verify-signal

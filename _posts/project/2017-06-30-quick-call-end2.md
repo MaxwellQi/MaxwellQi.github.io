@@ -1,8 +1,7 @@
-
 ---
 layout: post
 title:  问题处理-频繁打挂电话2
-description: VOIP模块，查询每路电话的通话状态
+description: 在Anywhere中的VOIP模块，快速重复的拨打电话和挂断电话的时候，有时候 app 会发生crash
 category: project
 tag: viop,webrtc
 ---
