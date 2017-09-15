@@ -19,8 +19,12 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 - [最终版本--利用最新的webrtc库完成语音通话][5]
 
 ### bug修复
-
+ - [查询通话状态][18]
+ - [问题处理-频繁打挂电话1][19]
+ - [问题处理-频繁打挂电话2][20]
+ - [问题处理-频繁打挂电话3][21]
  - [AURemoteIO中的IOThread崩溃][17]
+ - [问题处理-过滤信令][22]
 
 
 ### 对voip通信的总结
@@ -66,3 +70,7 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 [15]: http://w66g.com
 [16]: http://w66g.com
 [17]: https://maxwellqi.github.io/webrtc-iothread
+[18]: https://maxwellqi.github.io/select-call-state
+[19]: https://maxwellqi.github.io/quick-call-end1
+[20]: https://maxwellqi.github.io/quick-call-end2
+[21]: https://maxwellqi.github.io/quick-call-end3
