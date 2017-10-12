@@ -90,6 +90,7 @@ tag: icons,ios
 * [Launch Screen](https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/launch-screen/)
 * [iOS: Launch Image for all devices, include iPad Pro](https://stackoverflow.com/questions/39900225/ios-launch-image-for-all-devices-include-ipad-pro)
 * [IOS launch images - driving me crazy](https://stackoverflow.com/questions/34112681/ios-launch-images-driving-me-crazy)
+* [LaunchImage(s) Explained](https://medium.com/@hellosunschein/launchimage-s-explained-33b88c02d027)
 
 
 
