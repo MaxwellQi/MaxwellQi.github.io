@@ -85,7 +85,11 @@ tag: icons,ios
 ![](https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/20171012LaunchImage/launchiamge_02.png)
 
 
+## 参考
 
+* [Launch Screen](https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/launch-screen/)
+* [iOS: Launch Image for all devices, include iPad Pro](https://stackoverflow.com/questions/39900225/ios-launch-image-for-all-devices-include-ipad-pro)
+* [IOS launch images - driving me crazy](https://stackoverflow.com/questions/34112681/ios-launch-images-driving-me-crazy)
 
 
 
