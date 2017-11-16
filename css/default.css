@@ -83,13 +83,13 @@ pre ol{margin-left:25px;list-style-type:decimal;}
     background-position:50% 50%;
 }
 .blog .aside{
-    background-image:url('http://w66g.com/qiBlog/maxwell_left_image03.png');
+    background-image:url('https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/myblog/maxwell_left_image03.png');
 }
 .opinion .aside{
-    background-image:url('http://w66g.com/qiBlog/maxwell_left_image01.jpeg');
+    background-image:url('https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/myblog/maxwell_left_image01.jpeg');
 }
 .project .aside{
-    background-image:url('http://w66g.com/qiBlog/maxwell_left_image02.jpeg')
+    background-image:url('https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/myblog/maxwell_left_image02.jpeg')
 }
 .index-content .section { margin-left:30%; padding-top:80px; padding-right:15%; ;}
 
