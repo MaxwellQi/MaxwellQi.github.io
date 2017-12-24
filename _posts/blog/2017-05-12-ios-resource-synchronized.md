@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 多线程中的资源同步
-description: 从多语言多角度和分析在多线程的环境中如何让共享资源保持同步
+description:从多语言多角度和分析在多线程的环境中如何让共享资源保持同步
 category: blog
-tag: ios,synchronized,NSThread,NSLock
+tag:
 ---
 
 ## 关于资源同步
@@ -121,6 +121,8 @@ OC中的资源同步有多种方式，下面我具体罗列出来：
 
 ### 解决资源不同步问题
 
+我们这里只介绍在OC语言中资源同步的方法。
+
 #### @synchronized
 
 直接在卖票操作时，使用`@synchronized`关键字同步资源。
@@ -184,6 +186,7 @@ OC中的资源同步有多种方式，下面我具体罗列出来：
         
     }
 }
+
 ```
 
 我们可以看到，此时资源就同步了。
@@ -329,7 +332,6 @@ NSLog(@"%s----unlock-----%d",__func__,__LINE__);\
 ```
 
 运行结果如图所示：
-
 
 ![](https://raw.githubusercontent.com/MaxwellQi/Thread/master/images/image_04.png)
 
