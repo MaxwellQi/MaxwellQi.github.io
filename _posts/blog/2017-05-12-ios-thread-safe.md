@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 多线程中的资源同步
-description:从多语言多角度和分析在多线程的环境中如何让共享资源保持同步
+description: 从多语言多角度和分析在多线程的环境中如何让共享资源保持同步
 category: blog
 tag: ios , resource synchronize
 ---
