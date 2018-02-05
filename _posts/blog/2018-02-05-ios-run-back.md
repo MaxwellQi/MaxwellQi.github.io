@@ -290,7 +290,8 @@ Important: You are encouraged to use the standard services sparingly or use the 
 
 示例代码：
 
-`ViewController.m`
+ViewController.m
+
 ```
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
@@ -345,7 +346,7 @@ Important: You are encouraged to use the standard services sparingly or use the 
 
 ```
 
-'AppDelegate.m'
+AppDelegate.m
 
 ```
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -362,10 +363,6 @@ Important: You are encouraged to use the standard services sparingly or use the 
 
 ```
 
-
-
-
-…… 
 
 ## Getting the User’s Attention While in the Background（在应用处于后台时，得到用户的注意）
 
@@ -433,3 +430,7 @@ If you do not want your app to run in the background at all, you can explicitly 
 
 Opting out of background execution is strongly discouraged but may be the preferred option under certain conditions. Specifically, if coding for background execution adds significant complexity to your app, terminating the app might be a simpler solution. Also, if your app consumes a large amount of memory and cannot easily release any of it, the system might kill your app quickly anyway to make room for other apps. Thus, opting to terminate, instead of switching to the background, might yield the same results and save you development time and effort. 
 选择退出后台执行是不被推荐的，但可能会在一定条件下优先选择。特别是，如果后台编码执行增加了显著的复杂性，终止应用可能是一个简单的方案。还有就是，如果你的app占用了大量的内存资源而不能轻易释放时，系统有可能终止你的程序，以让更多的资源给其它应用。这样，选择终止应用，替代切换到后台，通过这种方式不仅能产生相同的结果而且还能节省开发经历和时间。
+
+## 代码
+
+[github: ios_app_runInBackground](https://github.com/MaxwellQi/ios_app_runInBackground)
