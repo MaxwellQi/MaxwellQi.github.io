@@ -685,6 +685,104 @@ KVO 的本质就是监听对象的属性进行赋值的时候有没有调用 set
 3. 重写`NSKVONotifying_Person`的`setter`方法：`[super setName:newName]`
 4. 通知观察者告诉属性改变。
 
+#### KVO监听数组
+
+KVO 不能直接监听数组的变化，因为KVO监听的是内存地址的变化，数组的内存地址没有发生变化。所以利用KVO监听数组的变化时，需要对数组进行一个模型封装。具体代码如下：
+
+```
+//
+//  ViewController.m
+//  KVO_ObserverArray
+//
+//  Created by 张旗 on 25/04/2018.
+//  Copyright © 2018 Maxwell. All rights reserved.
+//
+
+#import "ViewController.h"
+
+@interface Model: NSObject
+@property (nonatomic,strong) NSMutableArray *changeArray;
+@end
+
+@implementation Model
+
+- (NSMutableArray *)changeArray
+{
+    if (!_changeArray) {
+        _changeArray = [NSMutableArray array];
+    }
+    return _changeArray;
+}
+
+@end
+
+
+@interface ViewController ()
+
+@property (nonatomic,strong) Model *model;
+
+@end
+
+@implementation ViewController
+
+- (Model *)model
+{
+    if (!_model) {
+        _model = [Model new];
+        [_model addObserver:self forKeyPath:@"changeArray" options:NSKeyValueObservingOptionNew context:NULL];
+    }
+    return _model;
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (IBAction)onpressedButtonAddEle:(id)sender {
+    NSObject *obj = [NSObject new];
+    [[self.model mutableArrayValueForKeyPath:@"changeArray"] addObject:obj];
+    
+}
+
+- (IBAction)onpressedButtonInsertEle:(id)sender {
+    NSObject *obj = [NSObject new];
+    [[self.model mutableArrayValueForKeyPath:@"changeArray"] insertObject:obj atIndex:0];
+}
+
+
+- (IBAction)onpressedButtonDeleteEle:(id)sender {
+    int count = (int)[self.model mutableArrayValueForKeyPath:@"changeArray"].count;
+    if (count == 0) {
+        return;
+    }
+    [[self.model mutableArrayValueForKeyPath:@"changeArray"] removeObjectAtIndex:0];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"changeArray"]) {
+        NSLog(@"%lld",[self.model mutableArrayValueForKeyPath:@"changeArray"].count);
+    }
+}
+
+- (void)dealloc
+{
+    [self.model removeObserver:self forKeyPath:@"changeArray" context:NULL];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end
+
+```
+
 #### 代码下载
 
 GitHub: 
