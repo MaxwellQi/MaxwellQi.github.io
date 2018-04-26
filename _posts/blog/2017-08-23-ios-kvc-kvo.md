@@ -692,85 +692,92 @@ KVO 不能直接监听数组的变化，因为KVO监听的是内存地址的变�
 ```
 //
 //  ViewController.m
-//  KVO_ObserverArray
+//  KVO_Demo01
 //
-//  Created by 张旗 on 25/04/2018.
-//  Copyright © 2018 Maxwell. All rights reserved.
+//  Created by qi on 24/04/2018.
+//  Copyright © 2018 tvu. All rights reserved.
 //
 
 #import "ViewController.h"
 
-@interface Model: NSObject
-@property (nonatomic,strong) NSMutableArray *changeArray;
+@interface Model : NSObject
+@property (strong,nonatomic)NSMutableArray *modelArray;
 @end
 
 @implementation Model
 
-- (NSMutableArray *)changeArray
-{
-    if (!_changeArray) {
-        _changeArray = [NSMutableArray array];
+-(NSMutableArray *)modelArray{
+    if(!_modelArray){
+        _modelArray = [NSMutableArray array];
     }
-    return _changeArray;
+    return _modelArray;
 }
 
 @end
 
-
 @interface ViewController ()
 
-@property (nonatomic,strong) Model *model;
+@property (strong,nonatomic)Model *model;
 
 @end
 
 @implementation ViewController
 
-- (Model *)model
+- (Model*)model
 {
     if (!_model) {
         _model = [Model new];
-        [_model addObserver:self forKeyPath:@"changeArray" options:NSKeyValueObservingOptionNew context:NULL];
+        [_model addObserver:self forKeyPath:@"modelArray" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return _model;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    
+    if ([keyPath isEqualToString:@"modelArray"]) {
+        NSLog(@"%ld",self.model.modelArray.count);
+    }
+}
 
 - (IBAction)onpressedButtonAddEle:(id)sender {
-    NSObject *obj = [NSObject new];
-    [[self.model mutableArrayValueForKeyPath:@"changeArray"] addObject:obj];
+    NSObject *obj = [[NSObject alloc] init];
+    [[self.model mutableArrayValueForKeyPath:@"modelArray"] addObject:obj];
+}
+
+- (IBAction)onpressedButtonInserEle:(id)sender {
+    NSObject *obj = [[NSObject alloc] init];
+    [[self.model mutableArrayValueForKeyPath:@"modelArray"] insertObject:obj atIndex:0];
+}
+
+- (IBAction)onpressedButtonRemoveEle:(id)sender {
     
-}
-
-- (IBAction)onpressedButtonInsertEle:(id)sender {
-    NSObject *obj = [NSObject new];
-    [[self.model mutableArrayValueForKeyPath:@"changeArray"] insertObject:obj atIndex:0];
-}
-
-
-- (IBAction)onpressedButtonDeleteEle:(id)sender {
-    int count = (int)[self.model mutableArrayValueForKeyPath:@"changeArray"].count;
-    if (count == 0) {
+    int arrayCount = (int)[[self.model mutableArrayValueForKeyPath:@"modelArray"] count];
+    if (arrayCount == 0) {
         return;
     }
-    [[self.model mutableArrayValueForKeyPath:@"changeArray"] removeObjectAtIndex:0];
+    
+    [[self.model mutableArrayValueForKeyPath:@"modelArray"] removeObjectAtIndex:0];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"changeArray"]) {
-        NSLog(@"%lld",[self.model mutableArrayValueForKeyPath:@"changeArray"].count);
-    }
+- (IBAction)onpressedButtonAddArray:(id)sender {
+    NSArray *elementArray = @[@"1",@"2",@"3"];
+    [[self.model mutableArrayValueForKeyPath:@"modelArray"] addObjectsFromArray:elementArray];
 }
 
-- (void)dealloc
+- (IBAction)onpressedButtonAddArrayOnce
 {
-    [self.model removeObserver:self forKeyPath:@"changeArray" context:NULL];
+    NSArray *elementArray = @[@"1",@"2",@"3"];
+      NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange([self.model mutableArrayValueForKeyPath:@"modelArray"].count, elementArray.count)];
+    [[self.model mutableArrayValueForKeyPath:@"modelArray"] insertObjects:elementArray atIndexes:set];
+}
+
+- (void)dealloc{
+     [self.model removeObserver:self forKeyPath:@"modelArray"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -778,10 +785,22 @@ KVO 不能直接监听数组的变化，因为KVO监听的是内存地址的变�
     // Dispose of any resources that can be recreated.
 }
 
-
 @end
 
 ```
+
+对以上代码总结：
+* 使用 mutableArrayValueForKey: 代理来获取 NSMutableArray 属性。
+* 使用 addObjectsFromArray 向数组中添加元素时，每往数组中添加一个元素都会触发一次 KVO 的执行
+* 从 KVO 的通知中可以获取触发这次通知的操作类型，这里是往数组中添加元素，kind 的数值是 2，即 NSKeyValueChangeInsertion
+* 从 KVO 的通知中还可获取到新添加的对象以及该对象在数组中的索引值
+
+如果我们想一次性往数组中加入多个元素(如 addObjectsFromArray )，但是只想让其触发一次 KVO 的执行。应该按照如下方法：
+
+使用 NSMutableArray 的这个接口 ` - (void)insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes`  。 具体实现看上述代码。
+
+
+
 
 #### 代码下载
 
