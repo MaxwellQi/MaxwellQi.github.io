@@ -2,7 +2,7 @@
 layout: post
 title: 叶圣陶： 教育孩子，两种习惯养成不得
 description: 其实，不仅仅是教育孩子，扪心自问一下你有这种习惯吗？ 
-category: opinion
+category: opinion1
 tag: 叶圣陶,教育孩子
 ---
 
