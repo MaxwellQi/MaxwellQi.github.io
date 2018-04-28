@@ -10,9 +10,9 @@ tag: ios
 
 从OC的runtime的入口函数着手，`_objc_init`,我们加一个符号断电，可以看到如下结果：
 
-![](/Users/qi/Desktop/main_01.png)
+![](https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/20180427IosMain/main_01.png)
 
-![](/Users/qi/Desktop/main_02.png)
+![](https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/20180427IosMain/main_02.png)
 
 从上图可以看到，程序的入口是 `_dyld_start` 。 
 
@@ -22,7 +22,7 @@ iOS 中用到的所有系统 framework 都是动态链接的，类比成插头�
 
 Xcode中有一个link列表：
 
-![](/Users/qi/Desktop/main_03.png)
+![](https://raw.githubusercontent.com/MaxwellQi/ios_workImage/master/20180427IosMain/main_03.png)
 
 这些 framework 将会在动态链接过程中被加载，另外还有隐含 link 的 framework，可以测试出来：先找到可执行文件，我这里叫 QiDemo 的工程，模拟器路径下找到 QiDemo.app，可执行文件默认同名，再通过 otool命令：
 
