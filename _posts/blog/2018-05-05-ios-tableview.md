@@ -64,11 +64,11 @@ UITableView的重用机制是它只会创建一屏幕(一般都是一屏幕多1�
 
 在iphone8模拟器上运行结果如图：
 
-![](/Users/zhangqi/Desktop/tableView_01.png)
+![](https://raw.githubusercontent.com/MaxwellQi/MaxwellQi.github.io/master/images/blog/ios_tableview/tableView_01.png)
 
 如上图所示，整个屏幕容纳15个cell，但是系统创建了16个cell 。 
 
-![](/Users/zhangqi/Desktop/tableView_02.png)
+![](https://raw.githubusercontent.com/MaxwellQi/MaxwellQi.github.io/master/images/blog/ios_tableview/tableView_02.png)
 
 当向下滑动时，系统开始复用前面创建好的cell . 
 
