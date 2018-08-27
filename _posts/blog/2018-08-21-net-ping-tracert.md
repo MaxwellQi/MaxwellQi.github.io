@@ -92,5 +92,10 @@ ping的原理是用类型码为8的ICMP发请求，受到请求的主机则用�
 如上图所示，是路由器返回的ICMP包，type是11
 
 
+## 参考
+
+* [ping](https://zh.wikipedia.org/wiki/Ping)
+* [Traceroute](https://zh.wikipedia.org/wiki/Traceroute)
+* [利用ICMP实现Traceroute](https://www.jianshu.com/p/5b7189789dc1)
 
 
