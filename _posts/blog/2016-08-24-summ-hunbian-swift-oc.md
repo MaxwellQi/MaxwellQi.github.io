@@ -49,3 +49,24 @@ Any public Objective-C headers listed in this bridging header file will be visib
 
 当你在OC项目中引入swift文件时，你依靠Xcode自动创建的桥接头文件来暴露这些文件给OC文件。这个自动生成的文件是一个OC头文件，它为你的应用程序声明了swift接口。这个桥接头文件可以被看做是你swift文件的保护伞。你应用的头文件是你应用的名称后面加上`-Swift.h`。
 
+
+## 在swift项目中引入用oc写的framework静态库(手动)
+
+eg: 我要在项目中使用`UNetAnalysisSDK`
+
+1. 创建桥接文件，在桥接文件中导入你要使用的第三方`framework`
+    `#import <UNetAnalysisSDK/UNetAnalysisSDK.h>`
+2. 在项目的`build setting`中设置桥接文件的路径(最好使用相对路径)
+3. 然后再swift项目中就可以使用OC的framework了，并且Apple会自动将OC转化成swift语言。
+
+比较变化，如图： 
+
+UNetAnalysisSDK.framework 中的开放类： 
+
+![](https://ws2.sinaimg.cn/large/006tNbRwgy1fwjc1wkj6sj30w60l40ze.jpg)
+
+在项目中时机运用：
+
+![](https://ws4.sinaimg.cn/large/006tNbRwgy1fwjc3p4evdj30zd0luqan.jpg)
+
+
