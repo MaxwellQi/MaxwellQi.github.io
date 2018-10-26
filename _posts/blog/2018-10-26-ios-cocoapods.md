@@ -12,6 +12,7 @@ cocoapods可以帮助我们集中管理使用项目中用到的第三方库。
 
 ### 安装
 
+
 1.安装 Ruby 环境。CocoaPods 是使用 Ruby 实现的，可以通过 gem 命令来安装，Mac OS X 中一般自带 Ruby 环境。接下来将默认的 RubyGems 替换为淘宝的 RubyGems 镜像，速度要快很多。
 
 ```
