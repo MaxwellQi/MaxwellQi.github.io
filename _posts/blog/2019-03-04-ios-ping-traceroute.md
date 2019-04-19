@@ -10,17 +10,6 @@ tag: ios ping, ping, traceroute, ios icmp,icmp ios,icmp traceroute ios,icmp trac
 
 本篇文章主要讲ping和traceroute的原理以及在ios平台的实现，所有的代码都放到了github上并且发布到了cocoapods。你可以通过这个SDK非常容易的就能实现ping和traceroute(包含UDP和ICMP)等网络诊断的基本功能。
 
-利用该sdk开发的网络诊断app截图： 
-
-<div align="center">
-<img src="https://ws1.sinaimg.cn/large/006tNc79gy1g25emxxojfj30d70stgos.jpg" height="300px" alt="图片说明" ><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g25eq0wtczj30d80sj75p.jpg" height="300px" alt="图片说明" > <img src="https://ws4.sinaimg.cn/large/006tNc79gy1g25erdx9fqj30d50sqgom.jpg" height="300px" alt="图片说明" >   
-</div>
-
-<div align="center">
-<img src="https://ws1.sinaimg.cn/large/006tNc79gy1g25f78yxwvj30d50sp41b.jpg" height="300px" alt="图片说明" ><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g25f4z3p2qj30da0ss0uc.jpg" height="300px" alt="图片说明" > <img src="https://ws3.sinaimg.cn/large/006tNc79gy1g25f5ezjpuj30da0svmyb.jpg" height="300px" alt="图片说明" >   
-</div>
-
-
 * github地址： [net-diagnosis](https://github.com/mediaios/net-diagnosis)
 * 欢迎fork和star !
 * 掘金地址: [在iOS平台实现Ping和traceroute](https://juejin.im/post/5c7cedaaf265da2da15ddbad) 
