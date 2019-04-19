@@ -12,6 +12,8 @@ tag: runtime,ios runtime, ios Method Swizzling, Method Swizzling
 
 `Method Swizzling`是OC runtime提供的一种动态替换方法实现的技术，我们利用它可以替换系统或者我们自定义类的方法实现，进而达到我们的特殊目的。 
 
+代码-github： [MethodSwizzling](https://github.com/mediaios/training/tree/master/MethodSwizzling)
+
 ### Method Swizzling原理 
 
 为什么`Method Swizzling`能替换一个类的方法呢？我们首先要理解一下其替换的原理。 
