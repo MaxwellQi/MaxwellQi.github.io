@@ -28,7 +28,7 @@ PCM和AAC是音频的两种不同的格式，PCM是无损音频数据，AAC是�
 
 代码结构: 
 
-![](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b9192b94bb?w=748&h=888&f=jpeg&s=134595)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_01.png)
 
 ## AAC音频 
 
@@ -45,29 +45,29 @@ AAC的音频文件格式有两种分别是ADIF 和 ADTS 。
  
  ADIF格式:
  
- ![image](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b7a0b6571d?w=410&h=42&f=jpeg&s=4611)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_02.png)
  
  ADTS格式:
  	
- ![image](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b7a20ce8f5?w=595&h=42&f=jpeg&s=6557)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_03.png)
  
 ### ADIF和ADTS的头信息
 
 ADIF的头信息如图：
 
-![image](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b7a2273c97?w=493&h=252&f=jpeg&s=21337)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_04.png)
 
 ADIF头信息位于AAC文件的起始处，接下来就是连续的 raw data blocks。组成 ADIF头信息的各个域如下所示：
 
-![image](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b7a219b213?w=652&h=327&f=jpeg&s=47359)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_05.png)
 
 ADTS的固定头信息：
 
-![image](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b7a30c0d98?w=495&h=214&f=jpeg&s=17866)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_06.png)
 
 ADTS的可变头信息：
 
-![image](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b7d40da0f0?w=499&h=133&f=jpeg&s=14315)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_07.png)
 
 * 帧同步目的在于找出帧头在比特流中的位置，13818-7规定，aac ADTS格式的帧头。同步字为12比特的“1111 1111 1111”
 * ADTS的头信息为两部分组成，其一为固定头信息，紧接着是可变头信息。固定头信息中的数据每一帧都相同，而可变头信息则在帧与帧之间可变
@@ -272,7 +272,7 @@ static void inputAudioQueueBufferHandler(void * __nullable               inUserD
 ffplay -f s16le -ar 48000 -ac 1 queue_pcm_48k.pcm 
 ```
 
-![](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b872b47601?w=1268&h=449&f=jpeg&s=201889)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_08.png)
 
 
 ## AudioQueue播放PCM文件 
@@ -393,7 +393,7 @@ ffplay -f s16le -ar 48000 -ac 1 queue_pcm_48k.pcm
 
 ### 运行 
 
-![](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b88146fe73?w=441&h=960&f=jpeg&s=27252)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_09.png)
 
 如上图所是，点击播放会播放上一次录制的pcm音频。 
 
@@ -402,7 +402,7 @@ ffplay -f s16le -ar 48000 -ac 1 queue_pcm_48k.pcm
 
 在本小结中，我们首先启动`AudioQueue`录制pcm音频，同时创建一个转化器把PCM数据转化成AAC，最后把AAC保存到沙盒中。流程大致如下： 
 
-![](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b8827fc6c1?w=487&h=551&f=jpeg&s=61311)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_10.png)
 
 采样率等参数依然和前面录制和播放的保持一致，都是48K 
 
@@ -630,4 +630,4 @@ ffplay命令：
 ffplay -ar 48000 queue_aac_48k.aac 
 ```
 
-![](https://user-gold-cdn.xitu.io/2019/5/28/16afe1b8b8952294?w=1292&h=497&f=jpeg&s=188651)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190518_aq_11.png)
