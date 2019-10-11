@@ -27,21 +27,22 @@ tag: VideoToolBox,ffmpeg,encoder
  
  代码结构： 
  
- ![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa15a8ab8fc?w=937&h=737&f=jpeg&s=216884)
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_01.png)
  
  
  运行截图： 
  
- ![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa15a8a6569?w=1080&h=2339&f=jpeg&s=231722)
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_02.png)
 
-如果对视频编解码相关概念不清楚，请参看上篇文章--[视频的基本参数及H264编解码相关概念](https://juejin.im/post/5cf07dfdf265da1b8466ca8c)
+如果对视频编解码相关概念不清楚，请参看上篇文章--[视频的基本参数及H264编解码相关概念](https://maxwellqi.github.io/ios-h264-summ)
 
 
 ## 利用VideoToolBox对实时视频做H264硬编码
 
  总体步骤如下： 
  
- ![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa15aedfe20?w=441&h=329&f=jpeg&s=41503)
+ 
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_03.png)
  
  ### 初始化编码器
  
@@ -216,7 +217,8 @@ tag: VideoToolBox,ffmpeg,encoder
 ffplay hwEncoder.h264 
 ```
 
-![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa15b606eac?w=1273&h=691&f=jpeg&s=183814)
+ 
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_04.png)
 
 ## ffmpeg
 
@@ -615,7 +617,8 @@ brew install yasm
 
 编译成功后，目录结构如图所示：
 
-![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa15b1d0209?w=760&h=406&f=jpeg&s=46704)
+ 
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_05.png)
 
 
 #### 在项目中引入ffmpeg 
@@ -626,7 +629,8 @@ brew install yasm
 * libbz2.tbd
 * libz.tbd
 
-![](https://user-gold-cdn.xitu.io/2019/5/31/16b0cb0e00445c61?w=1338&h=844&f=jpeg&s=156146)
+ 
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_06.png)
 
 
 ### 简单介绍ffmpeg 
@@ -691,7 +695,8 @@ ffmpeg一共包含8个库：
 
 大致流程如下： 
 
-![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa165222b9c?w=331&h=527&f=jpeg&s=44668)
+ 
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_07.png)
 
 
 ```
@@ -984,6 +989,7 @@ int flush_encoder(AVFormatContext *fmt_ctx,unsigned int stream_index)
 ffplay softEncoder.h264
 ```
 
-![](https://user-gold-cdn.xitu.io/2019/5/31/16b0caa18e10b6ba?w=1356&h=743&f=jpeg&s=238594)
+ 
+ ![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190531_encoder_08.png)
 
 下篇文章我们将介绍视频硬解码和软解码。

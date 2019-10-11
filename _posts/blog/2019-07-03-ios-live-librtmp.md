@@ -26,14 +26,14 @@ tag: VideoToolBox,librtmp,encoder,live
 
 代码结构：
 
-![](http://ww4.sinaimg.cn/large/006tNc79gy1g4lplv7nlzj30pe0lmdsi.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_01.png)
 
 
 运行截图：
 
-![](http://ww4.sinaimg.cn/large/006tNc79gy1g4lq8e83tgj30u01sx1l2.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_02.png)
 
-![](http://ww2.sinaimg.cn/large/006tNc79gy1g4lq7an1zej30gc0iw13u.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_03.png)
 
 
 ## 推流服务器搭建
@@ -210,7 +210,7 @@ brew install nginx-full --with-rtmp-module
 
 所以下载的版本对应如下图所示：
 
-![](https://user-gold-cdn.xitu.io/2019/7/2/16bb1c8440a1a4ee?w=817&h=432&f=jpeg&s=68137)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_04.png)
 
 
 查看nginx安装信息：
@@ -276,7 +276,7 @@ nginx
 
 然后浏览器中输入http://localhost:8080，出现以下界面，证明安装成功
 
-![](https://user-gold-cdn.xitu.io/2019/7/2/16bb1c8440b41ea5?w=1181&h=313&f=jpeg&s=34038)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_05.png)
 
 
 #### 配置nginx 
@@ -386,14 +386,14 @@ ffplay -i rtmp://localhost:1935/hls/stream
 
 也可以在浏览器中输入`http://localhost:8080/hls/stream.m3u8`地址查看hls流： 
 
-![](https://user-gold-cdn.xitu.io/2019/7/2/16bb1c8441c7b519?w=818&h=1054&f=jpeg&s=60336)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_06.png)
 
 
 ## 推流功能
 
 ### 流程图 
 
-![](http://ww1.sinaimg.cn/large/006tNc79gy1g4lmb4n2erj30bz0kdgmp.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_07.png)
 
 ### 集成librtmp库到应用中
 
@@ -403,7 +403,7 @@ ffplay -i rtmp://localhost:1935/hls/stream
 
 解压后把库和头文件放到工程中： 
 
-![](http://ww2.sinaimg.cn/large/006tNc79gy1g4lms60l9vj30jq0i0dnc.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_08.png)
 
 然后正确设置库和头文件的搜索路径。 
 
@@ -490,11 +490,11 @@ AVC sequence header其实就是AVCDecoderConfigurationRecord结构，该结构�
 
 VIDEODATA: 
 
-![](http://ww4.sinaimg.cn/large/006tNc79gy1g4lnzewumnj30gb0hudhq.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_09.png)
 
 AVCDecoderConfigurationRecord的定义：
 
-![](http://ww2.sinaimg.cn/large/006tNc79gy1g4lnw7wesxj30j20hi778.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_10.png)
 
 
 详细注释具体代码如下： 
@@ -569,7 +569,7 @@ AVCDecoderConfigurationRecord的定义：
 
 首先看一下视频数据包的具体结构： 
 
-![](http://ww3.sinaimg.cn/large/006tNc79gy1g4lnrwle1ej30fk0cf401.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_11.png)
 
 具体代码实现： 
 
@@ -613,10 +613,10 @@ AVCDecoderConfigurationRecord的定义：
 
 音频header主要是音频的一些信息，此时包的第二个字节要为0. 
 
-![](http://ww3.sinaimg.cn/large/006tNc79gy1g4lohfbv4uj30ge07q752.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_12.png)
 
 
-![](http://ww1.sinaimg.cn/large/006tNc79gy1g4loi9raenj30gb0pvwgs.jpg)
+![](https://raw.githubusercontent.com/mediaios/AVLive_Research/master/imgs/20190703-rtmp_13.png)
 
 
 具体代码： 
