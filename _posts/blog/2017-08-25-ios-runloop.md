@@ -6,17 +6,17 @@ category: blog
 tag: iOS,Ojbective-C,runloop
 ---
 
-# RunLoop
+## RunLoop
 
 网上有一篇非常详细的关于RunLoop的博客： [深入理解RunLoop](https://blog.ibireme.com/2015/05/18/runloop/)
 
 
 
-# OC中的performselector:方法 
+## OC中的performselector:方法 
 
 
 
-## NSObject中的方法 
+### NSObject中的方法 
 
 ```objective-c
 - (id)performSelector:(SEL)aSelector;
@@ -28,7 +28,7 @@ tag: iOS,Ojbective-C,runloop
 
 
 
-## 延迟方法
+### 延迟方法
 
 ```objective-c
 - (void)performSelector:(SEL)aSelector withObject:(nullable id)anArgument afterDelay:(NSTimeInterval)delay inModes:(NSArray<NSRunLoopMode> *)modes;
@@ -56,7 +56,7 @@ dispatch_async(queue, ^{
 
 
 
-## 多参传递 
+### 多参传递 
 
 除了使用Dictionary和Array以及OC对象之外，还有两种方法可以做多值传递。 
 
