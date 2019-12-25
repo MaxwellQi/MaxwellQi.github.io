@@ -1,3 +1,11 @@
+---
+layout: post
+title: 网络协议安全基础之———密码学
+description: 介绍SSL/TLS协议依赖的密码学概念
+category: blog
+tag: iOS, SSL,TLS,密码学
+---
+
 ## 前言 
 
 本篇文章主要是了解密码学，作为理解`SSL/TLS协议`以及`HTTPS协议`的基础，其大部分内容出自`知乎`社区，最后附有连接。 
