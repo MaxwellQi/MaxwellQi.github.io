@@ -15,6 +15,8 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 
 ### WebRTC的集成
 
+- [下载WebRTC最新源码并编译动态库][24]
+
 - [初期版本--基于apprtc-ios(libjingle)集成][4]
 - [最终版本--利用最新的webrtc库完成语音通话][5]
 
@@ -77,3 +79,4 @@ tag: ios, webrtc, Swift,rongcloud,youtube
 [21]: https://maxwellqi.github.io/quick-call-end3
 [22]: https://maxwellqi.github.io/verify-signal
 [23]: https://maxwellqi.github.io/dji-inspire1
+[24]: https://maxwellqi.github.io/webrtc-build
