@@ -153,7 +153,7 @@ See //BUILD.gn:421:3: whence it was called.
 
 然后有出现了新的错误： 
 
-![](/Users/zhangqi/Desktop/imgs/build_rtc_01.png)
+![](https://raw.githubusercontent.com/mediaios/img_bed/master/rtc/build_rtc_01.png)
 
 解决这个问题需要更新 `gn`,和`clang-format.sha1`。具体下载地址如下： 
 
@@ -177,13 +177,13 @@ https://storage.googleapis.com/chromium-clang-format/0679b295e2ce2fce7919d1e8d00
 
 ```
 接着再执行 gn gen out/ios --args='target_os="ios" target_cpu="arm64" is_debug=true' 命令，结果如下： 
-![](/Users/zhangqi/Desktop/imgs/build_rtc_02.png)
+![](https://raw.githubusercontent.com/mediaios/img_bed/master/rtc/build_rtc_02.png)
 
 ### 默认构造方法错误 
 
 执行 ` ./tools_webrtc/ios/build_ios_libs.sh`脚本，出现错误如下： 
 
-![](/Users/zhangqi/Desktop/imgs/build_rtc_03.png)
+![](https://raw.githubusercontent.com/mediaios/img_bed/master/rtc/build_rtc_03.png)
 
 解决方法： 找到对应的代码注释掉 
 
@@ -191,7 +191,7 @@ https://storage.googleapis.com/chromium-clang-format/0679b295e2ce2fce7919d1e8d00
 
 再次执行编译脚本，错误如下： 
 
-![](/Users/zhangqi/Desktop/imgs/build_rtc_04.png)
+![](https://raw.githubusercontent.com/mediaios/img_bed/master/rtc/build_rtc_04.png)
 
 解决方法： 用gcc编译器，不用clang编译。具体设置方法为:`is_clang=false`
 
